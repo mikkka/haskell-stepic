@@ -130,3 +130,16 @@ updateLastName p1 p2 = Person {firstName = firstName p2, lastName = lastName p1,
 abbrFirstName :: Person -> Person
 abbrFirstName p@(Person (x:y:s) _ _) = p {firstName = x : "."}
 abbrFirstName p = p
+
+
+eitherToMaybe :: Either a b -> Maybe a
+eitherToMaybe (Left a) = Just a
+eitherToMaybe (Right _) = Nothing
+
+data Coord a = Coord a !a
+
+getX :: Coord a -> a
+getX (Coord x _) = x
+
+getY :: Coord a -> a
+getY (Coord _ y) = y
